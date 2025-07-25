@@ -1,0 +1,11 @@
+<ul class="todo-list">
+  <li *ngFor="let todo of todos">
+    <input
+      type="checkbox"
+      [checked]="todo.done"
+      (change)="toggleDone(todo)"
+    />
+    <span [class.done]="todo.done">{{ todo.text }}</span>
+    <button (click)="deleteTodo(todo.id)">🗑</button>
+  </li>
+</ul>
