@@ -1,11 +1,20 @@
-<ul class="todo-list">
-  <li *ngFor="let todo of todos">
-    <input
-      type="checkbox"
-      [checked]="todo.done"
+<mat-card *ngFor="let todo of todos" class="mb-3">
+  <mat-card-content class="flex items-center justify-between">
+    <mat-checkbox
+      [(ngModel)]="todo.done"
       (change)="toggleDone(todo)"
-    />
-    <span [class.done]="todo.done">{{ todo.text }}</span>
-    <button (click)="deleteTodo(todo.id)">🗑</button>
-  </li>
-</ul>
+      color="primary"
+    >
+      <span [class.line-through]="todo.done">{{ todo.text }}</span>
+    </mat-checkbox>
+
+    <button
+      mat-icon-button
+      color="warn"
+      (click)="deleteTodo(todo.id)"
+      aria-label="Supprimer la tâche"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-content>
+</mat-card>

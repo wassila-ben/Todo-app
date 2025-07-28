@@ -1,14 +1,22 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { TodoService } from '../services/todo.service';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+  ],
   templateUrl: './todo-form.html',
-  styleUrls: ['./todo-form.scss']
 })
 export class TodoFormComponent {
   newTask: string = '';
@@ -22,7 +30,7 @@ export class TodoFormComponent {
     if (text) {
       this.todoService.addTodo(text).subscribe(() => {
         this.newTask = '';
-        this.taskAdded.emit(); 
+        this.taskAdded.emit();
       });
     }
   }

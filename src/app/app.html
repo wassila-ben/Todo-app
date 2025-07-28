@@ -1,6 +1,21 @@
-<div class="container">
-  <h1>Ma Todo App 📝</h1>
+<mat-toolbar color="primary">
+  <span>Ma Todo App</span>
+</mat-toolbar>
 
-  <app-todo-form (taskAdded)="onTaskAdded()"></app-todo-form>
-  <app-todo-list #todoList></app-todo-list>
+<div class="container">
+  <mat-card class="todo-form-card">
+    <mat-card-title class="mb-4">Nouvelle tâche</mat-card-title>
+    <mat-card-content>
+      <app-todo-form (taskAdded)="onTaskAdded()"></app-todo-form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+
+  <mat-card class="todo-list-card">
+    <mat-card-title>Mes Tâches</mat-card-title>
+    <mat-card-content>
+      <app-todo-list #todoList></app-todo-list>
+    </mat-card-content>
+  </mat-card>
 </div>

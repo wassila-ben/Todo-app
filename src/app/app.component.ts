@@ -1,24 +1,29 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { TodoFormComponent } from './todo-form/todo-form';
 import { TodoListComponent } from './todo-list/todo-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    FormsModule,
-    HttpClientModule,
-    TodoFormComponent, 
-    TodoListComponent],
+    MatCardModule,
+    MatToolbarModule,
+    TodoFormComponent,
+    TodoListComponent,
+    MatDividerModule,
+  ],
   templateUrl: './app.html',
-  styleUrls: ['./app.scss'],
 })
 export class AppComponent {
+  today = new Date();
+
   @ViewChild('todoList') todoListComponent!: TodoListComponent;
 
-onTaskAdded() {
+  onTaskAdded() {
     this.todoListComponent.loadTodos();
   }
 }
