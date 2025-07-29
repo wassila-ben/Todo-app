@@ -1,10 +1,39 @@
 <mat-toolbar color="primary">
-  <span>Ma Todo App</span>
+  <span class="logo">Ma Todo App</span>
+  <span class="spacer"></span>
+
+  <ng-container *ngIf="!isLoggedIn; else loggedInMenu">
+    <button mat-button routerLink="/login">Se connecter</button>
+    <button mat-stroked-button color="primary" routerLink="/register">S'inscrire</button>
+  </ng-container>
+
+  <ng-template #loggedInMenu>
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item routerLink="/lists">
+        <mat-icon>list</mat-icon>
+        <span>Mes listes</span>
+      </button>
+      <button mat-menu-item routerLink="/lists/add">
+        <mat-icon>add</mat-icon>
+        <span>Ajouter une liste</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Se déconnecter</span>
+      </button>
+    </mat-menu>
+  </ng-template>
 </mat-toolbar>
 
+
 <div class="container">
-  <mat-card class="todo-form-card">
-    <mat-card-title class="mb-4">Nouvelle tâche</mat-card-title>
+  <mat-card class="todo-form-card custom-card">
+    <mat-card-title>Nouvelle tâche</mat-card-title>
     <mat-card-content>
       <app-todo-form (taskAdded)="onTaskAdded()"></app-todo-form>
     </mat-card-content>

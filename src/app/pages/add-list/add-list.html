@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Nouvelle liste</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="submit()">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Nom de la liste</mat-label>
+        <input matInput [(ngModel)]="title" name="title" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="description" name="description"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Créer</button>
+    </form>
+  </mat-card-content>
+</mat-card>

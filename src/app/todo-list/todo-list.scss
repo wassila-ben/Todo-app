@@ -1,0 +1,63 @@
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    background-color: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+    padding: 1.2rem 1.2rem;
+    margin: 0.75rem 0;
+    border-radius: 0.75rem;
+    box-shadow: var(--md-elevation-level1);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--md-sys-color-surface-container-high);
+      box-shadow: var(--md-elevation-level3);
+    }
+
+    .task-text {
+      font-size: 1rem;
+      font-weight: 500;
+      flex-grow: 1;
+      margin-left: 1rem;
+      word-break: break-word;
+    }
+
+    .done {
+      text-decoration: line-through;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    input[type='checkbox'] {
+      width: 1rem;
+      height: 1rem;
+      accent-color: var(--md-sys-color-primary);
+      cursor: pointer;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--md-sys-color-error);
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      padding: 0.25rem;
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+
+      .material-symbols-outlined {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

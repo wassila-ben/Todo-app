@@ -1,20 +1,21 @@
-<mat-card *ngFor="let todo of todos" class="mb-3">
-  <mat-card-content class="flex items-center justify-between">
+<mat-list dense>
+  <mat-list-item *ngFor="let todo of todos" class="task-item">
     <mat-checkbox
-      [(ngModel)]="todo.done"
+      [checked]="todo.done"
       (change)="toggleDone(todo)"
       color="primary"
-    >
-      <span [class.line-through]="todo.done">{{ todo.text }}</span>
-    </mat-checkbox>
+    ></mat-checkbox>
 
-    <button
-      mat-icon-button
-      color="warn"
-      (click)="deleteTodo(todo.id)"
-      aria-label="Supprimer la tâche"
+    <span
+      class="task-text"
+      [class.line-through]="todo.done"
+      [class.muted-text]="todo.done"
     >
+      {{ todo.text }}
+    </span>
+
+    <button mat-icon-button (click)="deleteTodo(todo.id)" color="warn">
       <mat-icon>delete</mat-icon>
     </button>
-  </mat-card-content>
-</mat-card>
+  </mat-list-item>
+</mat-list>

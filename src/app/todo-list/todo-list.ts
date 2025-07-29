@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-todo-list',
@@ -17,9 +18,11 @@ import { FormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule
   ],
   templateUrl: './todo-list.html',
+  styleUrls: ['./todo-list.scss'],
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
